@@ -1,0 +1,45 @@
+{
+    "name": "SHM Game Example",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "1.8.30",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj",
+    "palette": [
+        "#000000",
+        "#523c4e",
+        "#2a2a3a",
+        "#3e5442",
+        "#84545c",
+        "#38607c",
+        "#5c7a56",
+        "#101024",
+        "#b27e56",
+        "#d44e52",
+        "#55a894",
+        "#80ac40",
+        "#ec8a4b",
+        "#8bd0ba",
+        "#ffcc68",
+        "#fff8c0"
+    ]
+}

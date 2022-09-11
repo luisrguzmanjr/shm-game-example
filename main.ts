@@ -2,11 +2,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprit
     game.over(true)
 })
 function doVerticalSimpleHarmonicMotion (mySprite: Sprite, offsetx: number, offsety: number) {
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile`)
-    for (let value2 of tiles.getTilesByType(assets.tile`myTile`)) {
-        tiles.setTileAt(value2, assets.tile`transparency16`)
-        py2 = value2.y
-    }
     mySprite.y = py2 - offsety + screen.height / 2 + cy * Math.sin(rate * time)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -24,24 +19,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile2`)
-    for (let value1 of tiles.getTilesByType(assets.tile`myTile2`)) {
-        tiles.setTileAt(value1, assets.tile`transparency16`)
-        px1 = value1.x
-        py1 = value1.y
-    }
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle
     mySprite.x = px1 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py1 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
 function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile1`)
-    for (let value3 of tiles.getTilesByType(assets.tile`myTile1`)) {
-        tiles.setTileAt(value3, assets.tile`transparency16`)
-        px3 = value3.x
-        py3 = value3.y
-    }
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle2
     mySprite.x = px3 - offSetX + screen.width / 2 + cx * Math.cos(angle)
@@ -52,14 +35,8 @@ function doIntoOutoMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.y = offSetY + screen.height / 2
 }
 function doCircularMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile3`)
-    for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
-        tiles.setTileAt(value, assets.tile`transparency16`)
-        px = value.x
-        py = value.y
-    }
-    mySprite.x = px + offSetX + screen.width / 2 + cx * Math.cos(rate * time)
-    mySprite.y = py + offSetY + screen.height / 2 + cx * Math.sin(rate * time)
+    mySprite.x = px - offSetX + screen.width / 2 + cx * Math.cos(rate * time)
+    mySprite.y = py - offSetY + screen.height / 2 + cx * Math.sin(rate * time)
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile8, function (sprite, location) {
     game.over(true)
@@ -68,29 +45,24 @@ info.onLifeZero(function () {
     game.over(false)
 })
 function doHorizontalSimpleHarmonicMotion (mySprite: Sprite, offsetX: number, offsetY: number) {
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile0`)
-    for (let value4 of tiles.getTilesByType(assets.tile`myTile0`)) {
-        tiles.setTileAt(value4, assets.tile`transparency16`)
-        px2 = value4.x
-    }
     mySprite.x = px2 - offsetX + screen.width / 2 + cx * Math.sin(rate * time)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
 })
-let px2 = 0
-let py = 0
-let px = 0
-let py3 = 0
-let px3 = 0
 let angle = 0
 let c = 0
-let py1 = 0
-let px1 = 0
 let jump = false
 let time = 0
-let py2 = 0
 let hero: Sprite = null
+let py3 = 0
+let px3 = 0
+let px2 = 0
+let py2 = 0
+let py1 = 0
+let px1 = 0
+let py = 0
+let px = 0
 let cy = 0
 let cx = 0
 let rate = 0
@@ -337,6 +309,40 @@ let mySprite6 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     `, SpriteKind.Enemy)
+let list = tiles.getTilesByType(assets.tile`myTile3`)
+tiles.placeOnTile(mySprite, list._pickRandom())
+px = mySprite.x
+py = mySprite.y
+for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
+    tiles.setTileAt(value, assets.tile`transparency16`)
+}
+list = tiles.getTilesByType(assets.tile`myTile2`)
+tiles.placeOnTile(mySprite3, list._pickRandom())
+px1 = mySprite3.x
+py1 = mySprite3.y
+for (let value1 of tiles.getTilesByType(assets.tile`myTile2`)) {
+    tiles.setTileAt(value1, assets.tile`transparency16`)
+}
+list = tiles.getTilesByType(assets.tile`myTile`)
+tiles.placeOnTile(mySprite2, list._pickRandom())
+py2 = mySprite2.y
+for (let value2 of tiles.getTilesByType(assets.tile`myTile`)) {
+    tiles.setTileAt(value2, assets.tile`transparency16`)
+}
+list = tiles.getTilesByType(assets.tile`myTile0`)
+tiles.placeOnTile(mySprite5, list._pickRandom())
+px2 = mySprite5.x
+// tiles.placeOnRandomTile(mySprite, )
+for (let value4 of tiles.getTilesByType(assets.tile`myTile0`)) {
+    tiles.setTileAt(value4, assets.tile`transparency16`)
+}
+list = tiles.getTilesByType(assets.tile`myTile1`)
+tiles.placeOnTile(mySprite6, list._pickRandom())
+px3 = mySprite6.x
+py3 = mySprite6.y
+for (let value3 of tiles.getTilesByType(assets.tile`myTile1`)) {
+    tiles.setTileAt(value3, assets.tile`transparency16`)
+}
 hero = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . 7 7 7 7 7 7 7 7 7 7 . . . 
@@ -584,9 +590,9 @@ characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
 game.onUpdate(function () {
     time = game.runtime() / 10000
     doVerticalSimpleHarmonicMotion(mySprite2, 0, 4)
-    doHorizontalSimpleHarmonicMotion(mySprite5, 80, 0)
     doTopPendulumMotion(mySprite3, 40, 40)
     doBottomPendulumMotion(mySprite6, 56, 80)
-    doCircularMotion(mySprite, 350, 80)
+    doCircularMotion(mySprite, 70, 40)
     doIntoOutoMotion(mySprite4, 350, 80)
+    doHorizontalSimpleHarmonicMotion(mySprite5, 40, 0)
 })

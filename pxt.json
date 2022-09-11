@@ -1,5 +1,5 @@
 {
-    "name": "SHM Game Example",
+    "name": "Simple Harmonics Motion (SHM) Game Example",
     "description": "",
     "dependencies": {
         "device": "*",

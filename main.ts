@@ -1,8 +1,23 @@
-scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprite, location) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+})
+info.onLifeZero(function () {
+    game.over(false)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile8, function (sprite, location) {
     game.over(true)
 })
 function doVerticalSimpleHarmonicMotion (mySprite: Sprite, offsetx: number, offsety: number) {
     mySprite.y = py2 - offsety + screen.height / 2 + cy * Math.sin(rate * time)
+}
+scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprite, location) {
+    game.over(true)
+})
+function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+    c = Math.cos(rate * time)
+    angle = halfAngleRange * c + baseAngle
+    mySprite.x = px1 - offSetX + screen.width / 2 + cx * Math.cos(angle)
+    mySprite.y = py1 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (hero.vy == 0) {
@@ -18,12 +33,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
-function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
-    c = Math.cos(rate * time)
-    angle = halfAngleRange * c + baseAngle
-    mySprite.x = px1 - offSetX + screen.width / 2 + cx * Math.cos(angle)
-    mySprite.y = py1 - offSetY + screen.height / 2 + cy * Math.sin(angle)
-}
 function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle2
@@ -38,21 +47,12 @@ function doCircularMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = px - offSetX + screen.width / 2 + cx * Math.cos(rate * time)
     mySprite.y = py - offSetY + screen.height / 2 + cx * Math.sin(rate * time)
 }
-scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile8, function (sprite, location) {
-    game.over(true)
-})
-info.onLifeZero(function () {
-    game.over(false)
-})
 function doHorizontalSimpleHarmonicMotion (mySprite: Sprite, offsetX: number, offsetY: number) {
     mySprite.x = px2 - offsetX + screen.width / 2 + cx * Math.sin(rate * time)
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
-})
+let jump = false
 let angle = 0
 let c = 0
-let jump = false
 let time = 0
 let hero: Sprite = null
 let py3 = 0

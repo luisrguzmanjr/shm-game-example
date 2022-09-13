@@ -18,6 +18,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         }
     }
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
+    info.changeLifeBy(-1)
+})
 function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle
@@ -200,7 +203,8 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
-tiles.setCurrentTilemap(tilemap`level2`)
+let levels = [tilemap`level1`, tilemap`level2`]
+tiles.setCurrentTilemap(levels[0])
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . f . . . . . . . . . 

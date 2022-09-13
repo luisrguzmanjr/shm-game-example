@@ -1,6 +1,228 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprite, location) {
-    game.over(true)
+    level += 1
+    goToNextLevel(level)
 })
+function animateHero () {
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 b b b b b b 1 1 9 . . . 
+        . . . 9 b b 9 9 9 9 9 9 1 . . . 
+        . . . 9 b b 9 b b b b b 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        9 9 9 9 b b 9 b a a a a 1 . . . 
+        9 f f 9 b b 9 b b b b b 1 . . . 
+        9 f f 9 b b 9 9 9 9 9 9 1 . . . 
+        9 9 9 9 b b b b b b b 1 9 . . . 
+        . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . 9 9 b b b b b b b 1 9 . . . 
+        . 9 5 5 5 5 9 9 9 9 5 5 9 . . . 
+        . 9 9 9 9 9 . . . 9 5 9 . . . . 
+        . . . . . . . . . 9 9 . . . . . 
+        `,img`
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 b b b b b b 1 1 9 . . . 
+        . . . 9 b b 9 9 9 9 9 9 1 . . . 
+        . . . 9 b b 9 b b b b b 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        9 9 9 9 b b 9 b a a a a 1 . . . 
+        9 f f 9 b b 9 b b b b b 1 . . . 
+        9 f f 9 b b 9 9 9 9 9 9 1 . . . 
+        9 9 9 9 b b b b b b b 1 9 . . . 
+        . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . 9 5 5 5 9 9 9 9 9 5 5 9 . . 
+        . . 9 5 9 9 . . . . . 9 9 9 . . 
+        . . 9 9 . . . . . . . . . . . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.Moving, Predicate.FacingRight, Predicate.HittingWallDown)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 1 b b b b b b 9 . . . 
+        . . . 1 9 9 9 9 9 9 b b 9 . . . 
+        . . . 1 b b b b b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 9 9 9 
+        . . . 1 b b b b b 9 b b 9 f f 9 
+        . . . 1 9 9 9 9 9 9 b b 9 f f 9 
+        . . . 9 1 b b b b b b b 9 9 9 9 
+        . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 1 b b b b b b b 9 9 . . 
+        . . . 9 5 5 9 9 9 9 5 5 5 5 9 . 
+        . . . . 9 5 9 . . . 9 9 9 9 9 . 
+        . . . . . 9 9 . . . . . . . . . 
+        `,img`
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 1 b b b b b b 9 . . . 
+        . . . 1 9 9 9 9 9 9 b b 9 . . . 
+        . . . 1 b b b b b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 9 9 9 
+        . . . 1 b b b b b 9 b b 9 f f 9 
+        . . . 1 9 9 9 9 9 9 b b 9 f f 9 
+        . . . 9 1 b b b b b b b 9 9 9 9 
+        . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . 9 5 5 9 9 9 9 9 5 5 5 9 . . 
+        . . 9 9 9 . . . . . 9 9 5 9 . . 
+        . . . . . . . . . . . . 9 9 . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.Moving, Predicate.FacingLeft, Predicate.HittingWallDown)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 b b b b b b 1 1 9 . . . 
+        . . . 9 b b 9 9 9 9 9 9 1 . . . 
+        . . . 9 b b 9 b b b b b 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        9 9 9 9 b b 9 b a a a a 1 . . . 
+        9 f f 9 b b 9 b b b b b 1 . . . 
+        9 f f 9 b b 9 9 9 9 9 9 1 . . . 
+        9 9 9 9 b b b b b b b 1 9 . . . 
+        . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 4 4 9 9 9 9 4 4 9 . . . 
+        . . . 9 9 9 . . . . 9 9 9 . . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight, Predicate.HittingWallDown)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 1 b b b b b b 9 . . . 
+        . . . 1 9 9 9 9 9 9 b b 9 . . . 
+        . . . 1 b b b b b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 9 9 9 
+        . . . 1 b b b b b 9 b b 9 f f 9 
+        . . . 1 9 9 9 9 9 9 b b 9 f f 9 
+        . . . 9 1 b b b b b b b 9 9 9 9 
+        . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 4 4 9 9 9 9 4 4 9 . . . 
+        . . . 9 9 9 . . . . 9 9 9 . . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft, Predicate.HittingWallDown)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 b b b b b b 1 1 9 . . . 
+        . . . 9 b b 9 b b b b b 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        . . . 9 b b 9 b a a a a 1 . . . 
+        9 9 9 9 b b 9 b b b b b 1 . . . 
+        9 f f 9 b b 9 9 9 9 9 9 9 . . . 
+        9 f f 9 b b 9 9 9 9 9 9 9 . . . 
+        9 9 9 9 b b b b b b b 1 9 . . . 
+        . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 5 5 9 9 9 9 5 5 9 . . . 
+        . . . 9 5 9 . . . 9 5 9 . . . . 
+        . . . 9 9 . . . . 9 9 . . . . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 1 b b b b b b 9 . . . 
+        . . . 1 b b b b b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 . . . 
+        . . . 1 b b b b b 9 b b 9 9 9 9 
+        . . . 9 9 9 9 9 9 9 b b 9 f f 9 
+        . . . 9 9 9 9 9 9 9 b b 9 f f 9 
+        . . . 9 1 b b b b b b b 9 9 9 9 
+        . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 5 5 9 9 9 9 5 5 9 . . . 
+        . . . . 9 5 9 . . . 9 5 9 . . . 
+        . . . . . 9 9 . . . . 9 9 . . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 b b b b b b 1 1 9 . . . 
+        . . . 9 b b 9 9 9 9 9 9 1 . . . 
+        . . . 9 b b 9 b b b b b 1 . . . 
+        9 9 9 9 b b 9 b a a a a 1 . . . 
+        9 f f 9 b b 9 b a a a a 1 . . . 
+        9 f f 9 b b 9 b a a a a 1 . . . 
+        9 9 9 9 b b 9 b b b b b 1 . . . 
+        . . . 9 b b 9 9 9 9 9 9 1 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . 9 5 5 b b b b b b 5 5 9 . . 
+        . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+    )
+    characterAnimations.loopFrames(
+    hero,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 1 b b b b b b 9 . . . 
+        . . . 1 9 9 9 9 9 9 b b 9 . . . 
+        . . . 1 b b b b b 9 b b 9 . . . 
+        . . . 1 a a a a b 9 b b 9 9 9 9 
+        . . . 1 a a a a b 9 b b 9 f f 9 
+        . . . 1 a a a a b 9 b b 9 f f 9 
+        . . . 1 b b b b b 9 b b 9 9 9 9 
+        . . . 1 9 9 9 9 9 9 b b 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 1 b b b b b b b 9 . . . 
+        . . 9 5 5 b b b b b b 5 5 9 . . 
+        . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
+        `],
+    100,
+    characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+    )
+    info.startCountup(true)
+}
 function doVerticalSimpleHarmonicMotion (mySprite: Sprite, offsetx: number, offsety: number) {
     mySprite.y = py2 - offsety + screen.height / 2 + cy * Math.sin(rate * time)
 }
@@ -19,8 +241,48 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
-    info.changeLifeBy(-1)
+    resetLevel()
 })
+function placeSpritesOnTileMap () {
+    list = tiles.getTilesByType(assets.tile`myTile3`)
+    tiles.placeOnTile(mySprite, list._pickRandom())
+    px = mySprite.x
+    py = mySprite.y
+    for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
+        tiles.setTileAt(value, assets.tile`transparency16`)
+    }
+    list = tiles.getTilesByType(assets.tile`myTile2`)
+    tiles.placeOnTile(mySprite3, list._pickRandom())
+    px1 = mySprite3.x
+    py1 = mySprite3.y
+    for (let value1 of tiles.getTilesByType(assets.tile`myTile2`)) {
+        tiles.setTileAt(value1, assets.tile`transparency16`)
+    }
+    list = tiles.getTilesByType(assets.tile`myTile`)
+    tiles.placeOnTile(mySprite2, list._pickRandom())
+    py2 = mySprite2.y
+    for (let value2 of tiles.getTilesByType(assets.tile`myTile`)) {
+        tiles.setTileAt(value2, assets.tile`transparency16`)
+    }
+    list = tiles.getTilesByType(assets.tile`myTile0`)
+    tiles.placeOnTile(mySprite5, list._pickRandom())
+    px2 = mySprite5.x
+    // tiles.placeOnRandomTile(mySprite, )
+    for (let value4 of tiles.getTilesByType(assets.tile`myTile0`)) {
+        tiles.setTileAt(value4, assets.tile`transparency16`)
+    }
+    list = tiles.getTilesByType(assets.tile`myTile1`)
+    tiles.placeOnTile(mySprite6, list._pickRandom())
+    px3 = mySprite6.x
+    py3 = mySprite6.y
+    for (let value3 of tiles.getTilesByType(assets.tile`myTile1`)) {
+        tiles.setTileAt(value3, assets.tile`transparency16`)
+    }
+    tiles.placeOnRandomTile(hero, assets.tile`myTile4`)
+    for (let value5 of tiles.getTilesByType(assets.tile`myTile4`)) {
+        tiles.setTileAt(value5, assets.tile`transparency16`)
+    }
+}
 function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle
@@ -33,6 +295,140 @@ function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: num
     mySprite.x = px3 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py3 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
+function makeSprites () {
+    mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . b . . . . . . . . . 
+        . . . . . . b b . . . . . . . . 
+        . . . . . . a a b . . . . . . . 
+        . . . . . a a a a a . . . . . . 
+        . . . . a b b b b b a . . . . . 
+        . . . b a b b b b b a a b b . . 
+        . . b a a b b 9 b b a a b . . . 
+        . b b a a b b b b b a b . . . . 
+        . . . . a b b b b b a . . . . . 
+        . . . . . a a a a a . . . . . . 
+        . . . . . . b a a . . . . . . . 
+        . . . . . . . b b . . . . . . . 
+        . . . . . . . . b . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite2 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . 9 . . . 9 . 9 . . . 9 . 9 . . 
+        . 9 9 . 9 9 . 9 9 . 9 9 . 9 9 . 
+        9 9 9 b b b b b b b b b b 9 9 9 
+        . 9 b b b b b b b b b b b b 9 . 
+        . 9 b b b b b b b b b b b b 9 . 
+        9 9 b b b b b b b b b b b b 9 9 
+        . 9 b b b b b b b b b b b b 9 . 
+        . 9 9 b b b b b b b b b b 9 9 . 
+        9 9 9 . 9 9 . 9 9 . 9 9 . 9 9 9 
+        . 9 . . . 9 . 9 . . . 9 . 9 . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 9 5 9 5 9 . . . . . . 
+        . . . . 5 5 5 5 5 5 5 . . . . . 
+        . . . d 5 2 5 2 5 2 5 d . . . . 
+        . . d d 5 2 2 2 2 2 5 d d . . . 
+        5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+        . d d d 6 6 6 6 6 6 6 d d d d . 
+        . . . d 4 4 4 4 4 4 4 d . . . . 
+        . . . . d 9 9 9 9 9 d . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . b . . . 
+        . . . . . . . . . . . b b b . . 
+        9 9 9 9 9 9 9 9 9 9 9 9 b b b . 
+        9 9 9 9 9 9 9 9 9 9 9 9 b b b b 
+        9 9 9 9 9 9 9 9 9 9 9 9 b b b . 
+        . . . . . . . . . . . b b b . . 
+        . . . . . . . . . . . . b . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite5 = sprites.create(img`
+        . . . . 9 . . 9 . . 9 . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . . 9 9 9 9 9 9 9 9 . . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . . . . 9 9 9 9 9 9 9 9 . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . . . 9 9 9 b b b b 9 9 9 . . . 
+        . . . . 9 9 b b b b 9 9 . . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . . . . 9 9 9 9 9 9 9 9 . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . . . 9 9 9 9 9 9 . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . . 9 9 9 9 9 9 9 9 . . . . 
+        . . . . 9 . . 9 . . 9 . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite6 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 9 e 9 e 9 . . . . . . 
+        . . . . e e e e e e e . . . . . 
+        . . . d e 2 e 2 e 2 e d . . . . 
+        . . d d e 2 2 2 2 2 e d d . . . 
+        e e e e e e e e e e e e e e e e 
+        . d d d 6 6 6 6 6 6 6 d d d d . 
+        . . . d 4 4 4 4 4 4 4 d . . . . 
+        . . . . d 9 9 9 9 9 d . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    hero = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+        . . . 9 b b b b b b 1 1 9 . . . 
+        . . . 9 b b 9 9 9 9 9 9 1 . . . 
+        . . . 9 b b 9 b b b b b 1 . . . 
+        . . . 9 b b 9 b 9 9 9 9 1 . . . 
+        . . . 9 b b 9 b 9 9 9 9 1 . . . 
+        9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
+        9 a a 9 b b 9 b b b b b 1 . . . 
+        9 a a 9 b b 9 9 9 9 9 9 1 . . . 
+        9 9 9 9 b b b b b b b 1 9 . . . 
+        . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 b b b b b b b 1 9 . . . 
+        . . . 9 4 4 9 9 9 9 4 4 9 . . . 
+        . . . 9 9 9 . . . . 9 9 9 . . . 
+        `, SpriteKind.Player)
+    scene.cameraFollowSprite(hero)
+    hero.ay = 500
+    controller.moveSprite(hero, 100, 0)
+}
+function resetLevel () {
+    goToNextLevel(level)
+}
 function doIntoOutoMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = offSetX + screen.width / 2 + cx * Math.tan(rate * time)
     mySprite.y = offSetY + screen.height / 2
@@ -41,31 +437,43 @@ function doCircularMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = px - offSetX + screen.width / 2 + cx * Math.cos(rate * time)
     mySprite.y = py - offSetY + screen.height / 2 + cx * Math.sin(rate * time)
 }
-scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile8, function (sprite, location) {
-    game.over(true)
-})
-info.onLifeZero(function () {
-    game.over(false)
-})
+function goToNextLevel (level: number) {
+    levels = [tilemap`level2`, tilemap`level1`]
+    tiles.setCurrentTilemap(levels[level])
+    placeSpritesOnTileMap()
+}
 function doHorizontalSimpleHarmonicMotion (mySprite: Sprite, offsetX: number, offsetY: number) {
     mySprite.x = px2 - offsetX + screen.width / 2 + cx * Math.sin(rate * time)
 }
+function resetTimer () {
+    info.clearCountup()
+    info.startCountup(true)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
+    resetLevel()
 })
+let levels: tiles.TileMapData[] = []
+let mySprite4: Sprite = null
 let angle = 0
 let c = 0
-let jump = false
-let time = 0
-let hero: Sprite = null
 let py3 = 0
 let px3 = 0
+let mySprite6: Sprite = null
 let px2 = 0
-let py2 = 0
+let mySprite5: Sprite = null
+let mySprite2: Sprite = null
 let py1 = 0
 let px1 = 0
+let mySprite3: Sprite = null
 let py = 0
 let px = 0
+let mySprite: Sprite = null
+let list: tiles.Location[] = []
+let jump = false
+let time = 0
+let py2 = 0
+let hero: Sprite = null
+let level = 0
 let cy = 0
 let cx = 0
 let rate = 0
@@ -203,395 +611,9 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
-let levels = [tilemap`level1`, tilemap`level2`]
-tiles.setCurrentTilemap(levels[0])
-let mySprite = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . f . . . . . . . . . 
-    . . . . . . f f . . . . . . . . 
-    . . . . . . 3 3 f . . . . . . . 
-    . . . . . 3 3 3 3 3 . . . . . . 
-    . . . . 3 f f f f f 3 . . . . . 
-    . . . f 3 f f f f f 3 3 f f . . 
-    . . f 3 3 f f 6 f f 3 3 f . . . 
-    . f f 3 3 f f f f f 3 f . . . . 
-    . . . . 3 f f f f f 3 . . . . . 
-    . . . . . 3 3 3 3 3 . . . . . . 
-    . . . . . . f 3 3 . . . . . . . 
-    . . . . . . . f f . . . . . . . 
-    . . . . . . . . f . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-let mySprite2 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    9 9 9 9 9 . 9 c c 9 . 9 9 9 9 9 
-    9 9 9 9 9 9 . c c . 9 9 9 9 9 9 
-    c c c c c c c . . c c c c c c c 
-    c c c c c c c . . c c c c c c c 
-    9 9 9 9 9 9 . c c . 9 9 9 9 9 9 
-    9 9 9 9 9 . 9 c c 9 . 9 9 9 9 9 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-let mySprite3 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . 9 5 9 5 9 . . . . . . 
-    . . . . 5 5 5 5 5 5 5 . . . . . 
-    . . . d 5 2 5 2 5 2 5 d . . . . 
-    . . d d 5 2 2 2 2 2 5 d d . . . 
-    5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
-    . d d d 6 6 6 6 6 6 6 d d d d . 
-    . . . d 4 4 4 4 4 4 4 d . . . . 
-    . . . . d 9 9 9 9 9 d . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-let mySprite4 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . f . . . . 
-    . . . 9 9 c c e e a d b f . . . 
-    . . . 9 9 e e c c d a 5 b f . . 
-    . . . 9 9 c c e e a d b f . . . 
-    . . . . . . . . . . . f . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-let mySprite5 = sprites.create(img`
-    . . . . . . . 4 4 . . . . . . . 
-    . . . . . . 1 4 4 1 . . . . . . 
-    . . . . . 1 1 4 4 1 1 . . . . . 
-    . . . . . 1 1 4 4 1 1 . . . . . 
-    . . . . . 1 1 4 4 1 1 . . . . . 
-    . . . . . . 1 4 4 1 . . . . . . 
-    . . . . . . . 4 4 . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . 4 4 . . . . . . . 
-    . . . . . . 1 4 4 1 . . . . . . 
-    . . . . . 1 1 4 4 1 1 . . . . . 
-    . . . . . 1 1 4 4 1 1 . . . . . 
-    . . . . . 1 1 4 4 1 1 . . . . . 
-    . . . . . . 1 4 4 1 . . . . . . 
-    . . . . . . . 4 4 . . . . . . . 
-    `, SpriteKind.Enemy)
-let mySprite6 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . 9 e 9 e 9 . . . . . . 
-    . . . . e e e e e e e . . . . . 
-    . . . d e 2 e 2 e 2 e d . . . . 
-    . . d d e 2 2 2 2 2 e d d . . . 
-    e e e e e e e e e e e e e e e e 
-    . d d d 6 6 6 6 6 6 6 d d d d . 
-    . . . d 4 4 4 4 4 4 4 d . . . . 
-    . . . . d 9 9 9 9 9 d . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-let list = tiles.getTilesByType(assets.tile`myTile3`)
-tiles.placeOnTile(mySprite, list._pickRandom())
-px = mySprite.x
-py = mySprite.y
-for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
-    tiles.setTileAt(value, assets.tile`transparency16`)
-}
-list = tiles.getTilesByType(assets.tile`myTile2`)
-tiles.placeOnTile(mySprite3, list._pickRandom())
-px1 = mySprite3.x
-py1 = mySprite3.y
-for (let value1 of tiles.getTilesByType(assets.tile`myTile2`)) {
-    tiles.setTileAt(value1, assets.tile`transparency16`)
-}
-list = tiles.getTilesByType(assets.tile`myTile`)
-tiles.placeOnTile(mySprite2, list._pickRandom())
-py2 = mySprite2.y
-for (let value2 of tiles.getTilesByType(assets.tile`myTile`)) {
-    tiles.setTileAt(value2, assets.tile`transparency16`)
-}
-list = tiles.getTilesByType(assets.tile`myTile0`)
-tiles.placeOnTile(mySprite5, list._pickRandom())
-px2 = mySprite5.x
-// tiles.placeOnRandomTile(mySprite, )
-for (let value4 of tiles.getTilesByType(assets.tile`myTile0`)) {
-    tiles.setTileAt(value4, assets.tile`transparency16`)
-}
-list = tiles.getTilesByType(assets.tile`myTile1`)
-tiles.placeOnTile(mySprite6, list._pickRandom())
-px3 = mySprite6.x
-py3 = mySprite6.y
-for (let value3 of tiles.getTilesByType(assets.tile`myTile1`)) {
-    tiles.setTileAt(value3, assets.tile`transparency16`)
-}
-hero = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 b b b b b b 1 1 9 . . . 
-    . . . 9 b b 9 9 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b b b b b 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
-    9 a a 9 b b 9 b b b b b 1 . . . 
-    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
-    9 9 9 9 b b b b b b b 1 9 . . . 
-    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 4 4 9 9 9 9 4 4 9 . . . 
-    . . . 9 9 9 . . . . 9 9 9 . . . 
-    `, SpriteKind.Player)
-scene.cameraFollowSprite(hero)
-hero.ay = 500
-controller.moveSprite(hero, 100, 0)
-info.setLife(1)
-tiles.placeOnRandomTile(hero, assets.tile`myTile4`)
-for (let value5 of tiles.getTilesByType(assets.tile`myTile4`)) {
-    tiles.setTileAt(value5, assets.tile`transparency16`)
-}
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 b b b b b b 1 1 9 . . . 
-    . . . 9 b b 9 9 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b b b b b 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
-    9 a a 9 b b 9 b b b b b 1 . . . 
-    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
-    9 9 9 9 b b b b b b b 1 9 . . . 
-    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . 9 9 b b b b b b b 1 9 . . . 
-    . 9 5 5 5 5 9 9 9 9 5 5 9 . . . 
-    . 9 9 9 9 9 . . . 9 5 9 . . . . 
-    . . . . . . . . . 9 9 . . . . . 
-    `,img`
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 b b b b b b 1 1 9 . . . 
-    . . . 9 b b 9 9 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b b b b b 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
-    9 a a 9 b b 9 b b b b b 1 . . . 
-    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
-    9 9 9 9 b b b b b b b 1 9 . . . 
-    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . 9 5 5 5 9 9 9 9 9 5 5 9 . . 
-    . . 9 5 9 9 . . . . . 9 9 9 . . 
-    . . 9 9 . . . . . . . . . . . . 
-    `],
-100,
-characterAnimations.rule(Predicate.Moving, Predicate.FacingRight, Predicate.HittingWallDown)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 1 b b b b b b 9 . . . 
-    . . . 1 9 9 9 9 9 9 b b 9 . . . 
-    . . . 1 b b b b b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
-    . . . 1 b b b b b 9 b b 9 a a 9 
-    . . . 1 9 9 9 9 9 9 b b 9 a a 9 
-    . . . 9 1 b b b b b b b 9 9 9 9 
-    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 1 b b b b b b b 9 9 . . 
-    . . . 9 5 5 9 9 9 9 5 5 5 5 9 . 
-    . . . . 9 5 9 . . . 9 9 9 9 9 . 
-    . . . . . 9 9 . . . . . . . . . 
-    `,img`
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 1 b b b b b b 9 . . . 
-    . . . 1 9 9 9 9 9 9 b b 9 . . . 
-    . . . 1 b b b b b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
-    . . . 1 b b b b b 9 b b 9 a a 9 
-    . . . 1 9 9 9 9 9 9 b b 9 a a 9 
-    . . . 9 1 b b b b b b b 9 9 9 9 
-    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . 9 5 5 9 9 9 9 9 5 5 5 9 . . 
-    . . 9 9 9 . . . . . 9 9 5 9 . . 
-    . . . . . . . . . . . . 9 9 . . 
-    `],
-100,
-characterAnimations.rule(Predicate.Moving, Predicate.FacingLeft, Predicate.HittingWallDown)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . . . . . . . . . . . . . . 
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 b b b b b b 1 1 9 . . . 
-    . . . 9 b b 9 9 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b b b b b 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
-    9 a a 9 b b 9 b b b b b 1 . . . 
-    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
-    9 9 9 9 b b b b b b b 1 9 . . . 
-    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 4 4 9 9 9 9 4 4 9 . . . 
-    . . . 9 9 9 . . . . 9 9 9 . . . 
-    `],
-100,
-characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight, Predicate.HittingWallDown)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . . . . . . . . . . . . . . 
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 1 b b b b b b 9 . . . 
-    . . . 1 9 9 9 9 9 9 b b 9 . . . 
-    . . . 1 b b b b b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
-    . . . 1 b b b b b 9 b b 9 a a 9 
-    . . . 1 9 9 9 9 9 9 b b 9 a a 9 
-    . . . 9 1 b b b b b b b 9 9 9 9 
-    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 4 4 9 9 9 9 4 4 9 . . . 
-    . . . 9 9 9 . . . . 9 9 9 . . . 
-    `],
-100,
-characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft, Predicate.HittingWallDown)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 b b b b b b 1 1 9 . . . 
-    . . . 9 b b 9 b b b b b 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b 9 9 9 9 1 . . . 
-    9 9 9 9 b b 9 b b b b b 1 . . . 
-    9 a a 9 b b 9 9 9 9 9 9 9 . . . 
-    9 a a 9 b b 9 9 9 9 9 9 9 . . . 
-    9 9 9 9 b b b b b b b 1 9 . . . 
-    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 5 5 9 9 9 9 5 5 9 . . . 
-    . . . 9 5 9 . . . 9 5 9 . . . . 
-    . . . 9 9 . . . . 9 9 . . . . . 
-    `],
-100,
-characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 1 b b b b b b 9 . . . 
-    . . . 1 b b b b b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 . . . 
-    . . . 1 b b b b b 9 b b 9 9 9 9 
-    . . . 9 9 9 9 9 9 9 b b 9 a a 9 
-    . . . 9 9 9 9 9 9 9 b b 9 a a 9 
-    . . . 9 1 b b b b b b b 9 9 9 9 
-    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 5 5 9 9 9 9 5 5 9 . . . 
-    . . . . 9 5 9 . . . 9 5 9 . . . 
-    . . . . . 9 9 . . . . 9 9 . . . 
-    `],
-100,
-characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 b b b b b b 1 1 9 . . . 
-    . . . 9 b b 9 9 9 9 9 9 1 . . . 
-    . . . 9 b b 9 b b b b b 1 . . . 
-    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
-    9 a a 9 b b 9 b 9 9 9 9 1 . . . 
-    9 a a 9 b b 9 b 9 9 9 9 1 . . . 
-    9 9 9 9 b b 9 b b b b b 1 . . . 
-    . . . 9 b b 9 9 9 9 9 9 1 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
-    . . . 9 b b b b b b b 1 9 . . . 
-    . . 9 5 5 b b b b b b 5 5 9 . . 
-    . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
-    `],
-100,
-characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
-)
-characterAnimations.loopFrames(
-hero,
-[img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 1 b b b b b b 9 . . . 
-    . . . 1 9 9 9 9 9 9 b b 9 . . . 
-    . . . 1 b b b b b 9 b b 9 . . . 
-    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
-    . . . 1 9 9 9 9 b 9 b b 9 a a 9 
-    . . . 1 9 9 9 9 b 9 b b 9 a a 9 
-    . . . 1 b b b b b 9 b b 9 9 9 9 
-    . . . 1 9 9 9 9 9 9 b b 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
-    . . . 9 1 b b b b b b b 9 . . . 
-    . . 9 5 5 b b b b b b 5 5 9 . . 
-    . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
-    `],
-100,
-characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
-)
-info.startCountup(true)
+makeSprites()
+goToNextLevel(level)
+animateHero()
 game.onUpdate(function () {
     time = game.runtime() / 10000
     doVerticalSimpleHarmonicMotion(mySprite2, 0, 4)

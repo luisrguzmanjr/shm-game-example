@@ -345,21 +345,21 @@ for (let value3 of tiles.getTilesByType(assets.tile`myTile1`)) {
 }
 hero = sprites.create(img`
     . . . . . . . . . . . . . . . . 
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 d d d d d d f f 7 . . . 
-    . . . 7 d d 5 5 5 5 5 5 f . . . 
-    . . . 7 d d 5 d d d d d f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    7 7 7 7 d d 5 d 5 5 5 5 f . . . 
-    7 a a 7 d d 5 d d d d d f . . . 
-    7 a a 7 d d 5 5 5 5 5 5 f . . . 
-    7 7 7 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 5 5 5 5 5 d 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 7 7 7 7 5 5 7 . . . 
-    . . . 7 7 7 . . . . 7 7 7 . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 b b b b b b 1 1 9 . . . 
+    . . . 9 b b 9 9 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b b b b b 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
+    9 a a 9 b b 9 b b b b b 1 . . . 
+    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
+    9 9 9 9 b b b b b b b 1 9 . . . 
+    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 4 4 9 9 9 9 4 4 9 . . . 
+    . . . 9 9 9 . . . . 9 9 9 . . . 
     `, SpriteKind.Player)
 scene.cameraFollowSprite(hero)
 hero.ay = 500
@@ -372,39 +372,39 @@ for (let value5 of tiles.getTilesByType(assets.tile`myTile4`)) {
 characterAnimations.loopFrames(
 hero,
 [img`
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 d d d d d d f f 7 . . . 
-    . . . 7 d d 5 5 5 5 5 5 f . . . 
-    . . . 7 d d 5 d d d d d f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    7 7 7 7 d d 5 d 5 5 5 5 f . . . 
-    7 a a 7 d d 5 d d d d d f . . . 
-    7 a a 7 d d 5 5 5 5 5 5 f . . . 
-    7 7 7 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 5 5 5 5 5 d 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . 7 7 d d d d d d d f 7 . . . 
-    . 7 5 5 5 5 7 7 7 7 5 5 7 . . . 
-    . 7 7 7 7 7 . . . 7 5 7 . . . . 
-    . . . . . . . . . 7 7 . . . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 b b b b b b 1 1 9 . . . 
+    . . . 9 b b 9 9 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b b b b b 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
+    9 a a 9 b b 9 b b b b b 1 . . . 
+    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
+    9 9 9 9 b b b b b b b 1 9 . . . 
+    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . 9 9 b b b b b b b 1 9 . . . 
+    . 9 5 5 5 5 9 9 9 9 5 5 9 . . . 
+    . 9 9 9 9 9 . . . 9 5 9 . . . . 
+    . . . . . . . . . 9 9 . . . . . 
     `,img`
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 d d d d d d f f 7 . . . 
-    . . . 7 d d 5 5 5 5 5 5 f . . . 
-    . . . 7 d d 5 d d d d d f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    7 7 7 7 d d 5 d 5 5 5 5 f . . . 
-    7 a a 7 d d 5 d d d d d f . . . 
-    7 a a 7 d d 5 5 5 5 5 5 f . . . 
-    7 7 7 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 5 5 5 5 5 d 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . 7 5 5 5 7 7 7 7 7 5 5 7 . . 
-    . . 7 5 7 7 . . . . . 7 7 7 . . 
-    . . 7 7 . . . . . . . . . . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 b b b b b b 1 1 9 . . . 
+    . . . 9 b b 9 9 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b b b b b 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
+    9 a a 9 b b 9 b b b b b 1 . . . 
+    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
+    9 9 9 9 b b b b b b b 1 9 . . . 
+    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . 9 5 5 5 9 9 9 9 9 5 5 9 . . 
+    . . 9 5 9 9 . . . . . 9 9 9 . . 
+    . . 9 9 . . . . . . . . . . . . 
     `],
 100,
 characterAnimations.rule(Predicate.Moving, Predicate.FacingRight, Predicate.HittingWallDown)
@@ -412,39 +412,39 @@ characterAnimations.rule(Predicate.Moving, Predicate.FacingRight, Predicate.Hitt
 characterAnimations.loopFrames(
 hero,
 [img`
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 f f d d d d d d 7 . . . 
-    . . . f 5 5 5 5 5 5 d d 7 . . . 
-    . . . f d d d d d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 7 7 7 
-    . . . f d d d d d 5 d d 7 a a 7 
-    . . . f 5 5 5 5 5 5 d d 7 a a 7 
-    . . . 7 f d d d d d d d 7 7 7 7 
-    . . . 7 d 5 5 5 5 5 5 5 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 f d d d d d d d 7 7 . . 
-    . . . 7 5 5 7 7 7 7 5 5 5 5 7 . 
-    . . . . 7 5 7 . . . 7 7 7 7 7 . 
-    . . . . . 7 7 . . . . . . . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 1 b b b b b b 9 . . . 
+    . . . 1 9 9 9 9 9 9 b b 9 . . . 
+    . . . 1 b b b b b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
+    . . . 1 b b b b b 9 b b 9 a a 9 
+    . . . 1 9 9 9 9 9 9 b b 9 a a 9 
+    . . . 9 1 b b b b b b b 9 9 9 9 
+    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 1 b b b b b b b 9 9 . . 
+    . . . 9 5 5 9 9 9 9 5 5 5 5 9 . 
+    . . . . 9 5 9 . . . 9 9 9 9 9 . 
+    . . . . . 9 9 . . . . . . . . . 
     `,img`
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 f f d d d d d d 7 . . . 
-    . . . f 5 5 5 5 5 5 d d 7 . . . 
-    . . . f d d d d d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 7 7 7 
-    . . . f d d d d d 5 d d 7 a a 7 
-    . . . f 5 5 5 5 5 5 d d 7 a a 7 
-    . . . 7 f d d d d d d d 7 7 7 7 
-    . . . 7 d 5 5 5 5 5 5 5 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . 7 5 5 7 7 7 7 7 5 5 5 7 . . 
-    . . 7 7 7 . . . . . 7 7 5 7 . . 
-    . . . . . . . . . . . . 7 7 . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 1 b b b b b b 9 . . . 
+    . . . 1 9 9 9 9 9 9 b b 9 . . . 
+    . . . 1 b b b b b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
+    . . . 1 b b b b b 9 b b 9 a a 9 
+    . . . 1 9 9 9 9 9 9 b b 9 a a 9 
+    . . . 9 1 b b b b b b b 9 9 9 9 
+    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . 9 5 5 9 9 9 9 9 5 5 5 9 . . 
+    . . 9 9 9 . . . . . 9 9 5 9 . . 
+    . . . . . . . . . . . . 9 9 . . 
     `],
 100,
 characterAnimations.rule(Predicate.Moving, Predicate.FacingLeft, Predicate.HittingWallDown)
@@ -453,21 +453,21 @@ characterAnimations.loopFrames(
 hero,
 [img`
     . . . . . . . . . . . . . . . . 
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 d d d d d d f f 7 . . . 
-    . . . 7 d d 5 5 5 5 5 5 f . . . 
-    . . . 7 d d 5 d d d d d f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    7 7 7 7 d d 5 d 5 5 5 5 f . . . 
-    7 a a 7 d d 5 d d d d d f . . . 
-    7 a a 7 d d 5 5 5 5 5 5 f . . . 
-    7 7 7 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 5 5 5 5 5 d 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 7 7 7 7 5 5 7 . . . 
-    . . . 7 7 7 . . . . 7 7 7 . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 b b b b b b 1 1 9 . . . 
+    . . . 9 b b 9 9 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b b b b b 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
+    9 a a 9 b b 9 b b b b b 1 . . . 
+    9 a a 9 b b 9 9 9 9 9 9 1 . . . 
+    9 9 9 9 b b b b b b b 1 9 . . . 
+    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 4 4 9 9 9 9 4 4 9 . . . 
+    . . . 9 9 9 . . . . 9 9 9 . . . 
     `],
 100,
 characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight, Predicate.HittingWallDown)
@@ -476,21 +476,21 @@ characterAnimations.loopFrames(
 hero,
 [img`
     . . . . . . . . . . . . . . . . 
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 f f d d d d d d 7 . . . 
-    . . . f 5 5 5 5 5 5 d d 7 . . . 
-    . . . f d d d d d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 7 7 7 
-    . . . f d d d d d 5 d d 7 a a 7 
-    . . . f 5 5 5 5 5 5 d d 7 a a 7 
-    . . . 7 f d d d d d d d 7 7 7 7 
-    . . . 7 d 5 5 5 5 5 5 5 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 5 5 7 7 7 7 5 5 7 . . . 
-    . . . 7 7 7 . . . . 7 7 7 . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 1 b b b b b b 9 . . . 
+    . . . 1 9 9 9 9 9 9 b b 9 . . . 
+    . . . 1 b b b b b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
+    . . . 1 b b b b b 9 b b 9 a a 9 
+    . . . 1 9 9 9 9 9 9 b b 9 a a 9 
+    . . . 9 1 b b b b b b b 9 9 9 9 
+    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 4 4 9 9 9 9 4 4 9 . . . 
+    . . . 9 9 9 . . . . 9 9 9 . . . 
     `],
 100,
 characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft, Predicate.HittingWallDown)
@@ -498,22 +498,22 @@ characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft, Predicate.Hi
 characterAnimations.loopFrames(
 hero,
 [img`
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 d d d d d d f f 7 . . . 
-    . . . 7 d d 5 d d d d d f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    . . . 7 d d 5 d 5 5 5 5 f . . . 
-    7 7 7 7 d d 5 d d d d d f . . . 
-    7 a a 7 d d 5 5 5 5 5 5 5 . . . 
-    7 a a 7 d d 5 5 5 5 5 5 7 . . . 
-    7 7 7 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 5 5 5 5 5 d 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 7 7 7 7 5 5 7 . . . 
-    . . . 7 5 7 . . . 7 5 7 . . . . 
-    . . . 7 7 . . . . 7 7 . . . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 b b b b b b 1 1 9 . . . 
+    . . . 9 b b 9 b b b b b 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b 9 9 9 9 1 . . . 
+    9 9 9 9 b b 9 b b b b b 1 . . . 
+    9 a a 9 b b 9 9 9 9 9 9 9 . . . 
+    9 a a 9 b b 9 9 9 9 9 9 9 . . . 
+    9 9 9 9 b b b b b b b 1 9 . . . 
+    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 5 5 9 9 9 9 5 5 9 . . . 
+    . . . 9 5 9 . . . 9 5 9 . . . . 
+    . . . 9 9 . . . . 9 9 . . . . . 
     `],
 100,
 characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
@@ -521,22 +521,22 @@ characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
 characterAnimations.loopFrames(
 hero,
 [img`
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 f f d d d d d d 7 . . . 
-    . . . f d d d d d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 . . . 
-    . . . f d d d d d 5 d d 7 7 7 7 
-    . . . 5 5 5 5 5 5 5 d d 7 a a 7 
-    . . . 7 5 5 5 5 5 5 d d 7 a a 7 
-    . . . 7 f d d d d d d d 7 7 7 7 
-    . . . 7 d 5 5 5 5 5 5 5 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 5 5 7 7 7 7 5 5 7 . . . 
-    . . . . 7 5 7 . . . 7 5 7 . . . 
-    . . . . . 7 7 . . . . 7 7 . . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 1 b b b b b b 9 . . . 
+    . . . 1 b b b b b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 . . . 
+    . . . 1 b b b b b 9 b b 9 9 9 9 
+    . . . 9 9 9 9 9 9 9 b b 9 a a 9 
+    . . . 9 9 9 9 9 9 9 b b 9 a a 9 
+    . . . 9 1 b b b b b b b 9 9 9 9 
+    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 5 5 9 9 9 9 5 5 9 . . . 
+    . . . . 9 5 9 . . . 9 5 9 . . . 
+    . . . . . 9 9 . . . . 9 9 . . . 
     `],
 100,
 characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
@@ -546,20 +546,20 @@ hero,
 [img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 d d d d d d f f 7 . . . 
-    . . . 7 d d 5 5 5 5 5 5 f . . . 
-    . . . 7 d d 5 d d d d d f . . . 
-    7 7 7 7 d d 5 d 5 5 5 5 f . . . 
-    7 a a 7 d d 5 d 5 5 5 5 f . . . 
-    7 a a 7 d d 5 d 5 5 5 5 f . . . 
-    7 7 7 7 d d 5 d d d d d f . . . 
-    . . . 7 d d 5 5 5 5 5 5 f . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . . 7 5 5 5 5 5 5 5 d 7 . . . 
-    . . . 7 d d d d d d d f 7 . . . 
-    . . 7 5 5 d d d d d d 5 5 7 . . 
-    . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 b b b b b b 1 1 9 . . . 
+    . . . 9 b b 9 9 9 9 9 9 1 . . . 
+    . . . 9 b b 9 b b b b b 1 . . . 
+    9 9 9 9 b b 9 b 9 9 9 9 1 . . . 
+    9 a a 9 b b 9 b 9 9 9 9 1 . . . 
+    9 a a 9 b b 9 b 9 9 9 9 1 . . . 
+    9 9 9 9 b b 9 b b b b b 1 . . . 
+    . . . 9 b b 9 9 9 9 9 9 1 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . . 9 9 9 9 9 9 9 9 b 9 . . . 
+    . . . 9 b b b b b b b 1 9 . . . 
+    . . 9 5 5 b b b b b b 5 5 9 . . 
+    . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
     `],
 100,
 characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
@@ -569,20 +569,20 @@ hero,
 [img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-    . . . 7 f f d d d d d d 7 . . . 
-    . . . f 5 5 5 5 5 5 d d 7 . . . 
-    . . . f d d d d d 5 d d 7 . . . 
-    . . . f 5 5 5 5 d 5 d d 7 7 7 7 
-    . . . f 5 5 5 5 d 5 d d 7 a a 7 
-    . . . f 5 5 5 5 d 5 d d 7 a a 7 
-    . . . f d d d d d 5 d d 7 7 7 7 
-    . . . f 5 5 5 5 5 5 d d 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . . 7 d 5 5 5 5 5 5 5 7 . . . 
-    . . . 7 f d d d d d d d 7 . . . 
-    . . 7 5 5 d d d d d d 5 5 7 . . 
-    . . 7 7 7 7 7 7 7 7 7 7 7 7 . . 
+    . . . 9 9 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 1 b b b b b b 9 . . . 
+    . . . 1 9 9 9 9 9 9 b b 9 . . . 
+    . . . 1 b b b b b 9 b b 9 . . . 
+    . . . 1 9 9 9 9 b 9 b b 9 9 9 9 
+    . . . 1 9 9 9 9 b 9 b b 9 a a 9 
+    . . . 1 9 9 9 9 b 9 b b 9 a a 9 
+    . . . 1 b b b b b 9 b b 9 9 9 9 
+    . . . 1 9 9 9 9 9 9 b b 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . . 9 b 9 9 9 9 9 9 9 9 . . . 
+    . . . 9 1 b b b b b b b 9 . . . 
+    . . 9 5 5 b b b b b b 5 5 9 . . 
+    . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
     `],
 100,
 characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)

@@ -1,6 +1,15 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    updatePlayerTime(level, info.getTimeElapsed())
+    showLeaderboards()
     level += 1
+    if (level >= levels.length)
+    {
+        game.over(true, effects.confetti)
+    }
     goToNextLevel(level)
+    resetTimer()
 })
 function animateHero () {
     characterAnimations.loopFrames(
@@ -473,6 +482,7 @@ let jump = false
 let time = 0
 let py2 = 0
 let hero: Sprite = null
+let BestTimes: number[] = []
 let level = 0
 let cy = 0
 let cx = 0
@@ -623,3 +633,63 @@ game.onUpdate(function () {
     doIntoOutoMotion(mySprite4, 350, 80)
     doHorizontalSimpleHarmonicMotion(mySprite5, 40, 0)
 })
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game.ask("Clear all high scores?")) {
+        blockSettings.clear()
+    }
+})
+
+function updatePlayerTime(playerLevel: number, playerTime: number) {
+    levelIndex = levelArray.indexOf(playerLevel)
+    if (levelIndex != -1) {
+        if (timeArray[levelIndex] > playerTime) {
+            timeArray[levelIndex] = playerTime
+        }
+    } else {
+        levelArray.push(playerLevel)
+        timeArray.push(playerTime)
+    }
+    saveTimesToSettings()
+}
+function saveTimesToSettings() {
+    for (let index = 0; index <= timeArray.length - 1; index++) {
+        blockSettings.writeNumber("level" + index, levelArray[index])
+    }
+    blockSettings.writeNumberArray("times", timeArray)
+}
+function showLeaderboards() {
+    leaderboardText = "BEST TIMES:\\n"
+    while (timeArray.length > 0) {
+        bestTime = 9999
+        bestTimeIndex = 0
+        for (let index = 0; index <= timeArray.length - 1; index++) {
+            if (timeArray[index] < bestTime) {
+                bestTime = timeArray[index]
+                bestTimeIndex = index
+            }
+        }
+        leaderboardText = "" + leaderboardText + levelArray[bestTimeIndex] + "-" + timeArray[bestTimeIndex] + "\\n"
+        timeArray.removeAt(bestTimeIndex)
+        levelArray.removeAt(bestTimeIndex)
+    }
+    game.showLongText(leaderboardText, DialogLayout.Center)
+}
+function readTimesFromSettings() {
+    levelArray = []
+    if (blockSettings.exists("times")) {
+        timeArray = blockSettings.readNumberArray("times")
+    } else {
+        timeArray = []
+    }
+    for (let index = 0; index <= timeArray.length - 1; index++) {
+        levelArray.push(blockSettings.readNumber("level" + index))
+    }
+}
+let bestTimeIndex = 0
+let bestTime = 0
+let leaderboardText = ""
+let timeArray: number[] = []
+let levelArray: number[] = []
+let levelIndex = 0
+
+

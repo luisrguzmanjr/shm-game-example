@@ -1,20 +1,19 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprite, location) {
     info.pauseCountup()
     readTimesFromSettings()
+    level += 1
     updatePlayerTime(level, info.getTimeElapsed())
     showLeaderboards()
-    level += 1
-    if (level >= levels.length)
-    {
+    if (level >= levels.length) {
         game.over(true, effects.confetti)
     }
     goToNextLevel(level)
     resetTimer()
 })
-function animateHero () {
+function animateHero() {
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 b b b b b b 1 1 9 . . . 
         . . . 9 b b 9 9 9 9 9 9 1 . . . 
@@ -31,7 +30,7 @@ function animateHero () {
         . 9 5 5 5 5 9 9 9 9 5 5 9 . . . 
         . 9 9 9 9 9 . . . 9 5 9 . . . . 
         . . . . . . . . . 9 9 . . . . . 
-        `,img`
+        `, img`
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 b b b b b b 1 1 9 . . . 
         . . . 9 b b 9 9 9 9 9 9 1 . . . 
@@ -49,12 +48,12 @@ function animateHero () {
         . . 9 5 9 9 . . . . . 9 9 9 . . 
         . . 9 9 . . . . . . . . . . . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.Moving, Predicate.FacingRight, Predicate.HittingWallDown)
+        100,
+        characterAnimations.rule(Predicate.Moving, Predicate.FacingRight, Predicate.HittingWallDown)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 1 1 b b b b b b 9 . . . 
         . . . 1 9 9 9 9 9 9 b b 9 . . . 
@@ -71,7 +70,7 @@ function animateHero () {
         . . . 9 5 5 9 9 9 9 5 5 5 5 9 . 
         . . . . 9 5 9 . . . 9 9 9 9 9 . 
         . . . . . 9 9 . . . . . . . . . 
-        `,img`
+        `, img`
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 1 1 b b b b b b 9 . . . 
         . . . 1 9 9 9 9 9 9 b b 9 . . . 
@@ -89,12 +88,12 @@ function animateHero () {
         . . 9 9 9 . . . . . 9 9 5 9 . . 
         . . . . . . . . . . . . 9 9 . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.Moving, Predicate.FacingLeft, Predicate.HittingWallDown)
+        100,
+        characterAnimations.rule(Predicate.Moving, Predicate.FacingLeft, Predicate.HittingWallDown)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . . . . . . . . . . . . . . 
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 b b b b b b 1 1 9 . . . 
@@ -112,12 +111,12 @@ function animateHero () {
         . . . 9 4 4 9 9 9 9 4 4 9 . . . 
         . . . 9 9 9 . . . . 9 9 9 . . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight, Predicate.HittingWallDown)
+        100,
+        characterAnimations.rule(Predicate.NotMoving, Predicate.FacingRight, Predicate.HittingWallDown)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . . . . . . . . . . . . . . 
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 1 1 b b b b b b 9 . . . 
@@ -135,12 +134,12 @@ function animateHero () {
         . . . 9 4 4 9 9 9 9 4 4 9 . . . 
         . . . 9 9 9 . . . . 9 9 9 . . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft, Predicate.HittingWallDown)
+        100,
+        characterAnimations.rule(Predicate.NotMoving, Predicate.FacingLeft, Predicate.HittingWallDown)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 b b b b b b 1 1 9 . . . 
         . . . 9 b b 9 b b b b b 1 . . . 
@@ -158,12 +157,12 @@ function animateHero () {
         . . . 9 5 9 . . . 9 5 9 . . . . 
         . . . 9 9 . . . . 9 9 . . . . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
+        100,
+        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingRight)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
         . . . 9 1 1 b b b b b b 9 . . . 
         . . . 1 b b b b b 9 b b 9 . . . 
@@ -181,12 +180,12 @@ function animateHero () {
         . . . . 9 5 9 . . . 9 5 9 . . . 
         . . . . . 9 9 . . . . 9 9 . . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
+        100,
+        characterAnimations.rule(Predicate.MovingUp, Predicate.FacingLeft)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
@@ -204,12 +203,12 @@ function animateHero () {
         . . 9 5 5 b b b b b b 5 5 9 . . 
         . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
+        100,
+        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingRight)
     )
     characterAnimations.loopFrames(
-    hero,
-    [img`
+        hero,
+        [img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . 9 9 9 9 9 9 9 9 9 9 . . . 
@@ -227,12 +226,12 @@ function animateHero () {
         . . 9 5 5 b b b b b b 5 5 9 . . 
         . . 9 9 9 9 9 9 9 9 9 9 9 9 . . 
         `],
-    100,
-    characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
+        100,
+        characterAnimations.rule(Predicate.MovingDown, Predicate.FacingLeft)
     )
     info.startCountup(true)
 }
-function doVerticalSimpleHarmonicMotion (mySprite: Sprite, offsetx: number, offsety: number) {
+function doVerticalSimpleHarmonicMotion(mySprite: Sprite, offsetx: number, offsety: number) {
     mySprite.y = py2 - offsety + screen.height / 2 + cy * Math.sin(rate * time)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -252,7 +251,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     resetLevel()
 })
-function placeSpritesOnTileMap () {
+function placeSpritesOnTileMap() {
     list = tiles.getTilesByType(assets.tile`myTile3`)
     tiles.placeOnTile(mySprite, list._pickRandom())
     px = mySprite.x
@@ -292,19 +291,19 @@ function placeSpritesOnTileMap () {
         tiles.setTileAt(value5, assets.tile`transparency16`)
     }
 }
-function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+function doTopPendulumMotion(mySprite: Sprite, offSetX: number, offSetY: number) {
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle
     mySprite.x = px1 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py1 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
-function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+function doBottomPendulumMotion(mySprite: Sprite, offSetX: number, offSetY: number) {
     c = Math.cos(rate * time)
     angle = halfAngleRange * c + baseAngle2
     mySprite.x = px3 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py3 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
-function makeSprites () {
+function makeSprites() {
     mySprite = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . b . . . . . . . . . 
@@ -435,26 +434,26 @@ function makeSprites () {
     hero.ay = 500
     controller.moveSprite(hero, 100, 0)
 }
-function resetLevel () {
+function resetLevel() {
     goToNextLevel(level)
 }
-function doIntoOutoMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+function doIntoOutoMotion(mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = offSetX + screen.width / 2 + cx * Math.tan(rate * time)
     mySprite.y = offSetY + screen.height / 2
 }
-function doCircularMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+function doCircularMotion(mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = px - offSetX + screen.width / 2 + cx * Math.cos(rate * time)
     mySprite.y = py - offSetY + screen.height / 2 + cx * Math.sin(rate * time)
 }
-function goToNextLevel (level: number) {
+function goToNextLevel(level: number) {
     levels = [tilemap`level2`, tilemap`level1`]
     tiles.setCurrentTilemap(levels[level])
     placeSpritesOnTileMap()
 }
-function doHorizontalSimpleHarmonicMotion (mySprite: Sprite, offsetX: number, offsetY: number) {
+function doHorizontalSimpleHarmonicMotion(mySprite: Sprite, offsetX: number, offsetY: number) {
     mySprite.x = px2 - offsetX + screen.width / 2 + cx * Math.sin(rate * time)
 }
-function resetTimer () {
+function resetTimer() {
     info.clearCountup()
     info.startCountup(true)
 }
@@ -482,7 +481,6 @@ let jump = false
 let time = 0
 let py2 = 0
 let hero: Sprite = null
-let BestTimes: number[] = []
 let level = 0
 let cy = 0
 let cx = 0
@@ -621,6 +619,8 @@ scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     `)
+readTimesFromSettings()
+showLeaderboards()
 makeSprites()
 goToNextLevel(level)
 animateHero()
@@ -638,22 +638,21 @@ controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
         blockSettings.clear()
     }
 })
-
 function updatePlayerTime(playerLevel: number, playerTime: number) {
-    levelIndex = levelArray.indexOf(playerLevel)
+    levelIndex = levelArray.indexOf("Level" + playerLevel)
     if (levelIndex != -1) {
         if (timeArray[levelIndex] > playerTime) {
             timeArray[levelIndex] = playerTime
         }
     } else {
-        levelArray.push(playerLevel)
+        levelArray.push("Level" + playerLevel)
         timeArray.push(playerTime)
     }
     saveTimesToSettings()
 }
 function saveTimesToSettings() {
     for (let index = 0; index <= timeArray.length - 1; index++) {
-        blockSettings.writeNumber("level" + index, levelArray[index])
+        blockSettings.writeString("level" + levelArray[index], levelArray[index])
     }
     blockSettings.writeNumberArray("times", timeArray)
 }
@@ -682,14 +681,13 @@ function readTimesFromSettings() {
         timeArray = []
     }
     for (let index = 0; index <= timeArray.length - 1; index++) {
-        levelArray.push(blockSettings.readNumber("level" + index))
+        let num = index + 1
+        levelArray.push(blockSettings.readString("level" + "Level" + num))
     }
 }
 let bestTimeIndex = 0
 let bestTime = 0
 let leaderboardText = ""
 let timeArray: number[] = []
-let levelArray: number[] = []
+let levelArray: string[] = []
 let levelIndex = 0
-
-

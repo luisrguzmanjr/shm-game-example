@@ -281,18 +281,6 @@ function readTimesFromSettings () {
         levelArray.push(blockSettings.readString("level" + "Level" + num))
     }
 }
-scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile6, function (sprite, location) {
-    info.pauseCountup()
-    readTimesFromSettings()
-    level += 1
-    updatePlayerTime(level, info.getTimeElapsed())
-    showLeaderboards()
-    if (level >= levels.length) {
-        game.over(true, effects.confetti)
-    }
-    goToNextLevel(level)
-    resetTimer()
-})
 function doIntoOutoMotion2 (mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = offSetX + screen.width / 2 + cx * Math.tan(rate * time)
     mySprite.y = offSetY + screen.height / 2 + cx * Math.tan(rate * time)
@@ -323,6 +311,18 @@ function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: num
     mySprite.x = px3 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py3 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    level += 1
+    updatePlayerTime(level, info.getTimeElapsed())
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.over(true, effects.confetti)
+    }
+    goToNextLevel(level)
+    resetTimer()
+})
 function saveTimesToSettings () {
     for (let index = 0; index <= timeArray.length - 1; index++) {
         blockSettings.writeString("level" + levelArray[index], levelArray[index])
@@ -481,6 +481,31 @@ function makeSprites () {
 function resetLevel () {
     goToNextLevel(level)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    level += 1
+    updatePlayerTime(level, info.getTimeElapsed())
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.over(true, effects.confetti)
+    }
+    goToNextLevel(level)
+    resetTimer()
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile11, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    level += 1
+    updatePlayerTime(level, info.getTimeElapsed())
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.setGameOverDialogWinText("Way to Go!")
+        game.over(true, effects.confetti)
+    }
+    goToNextLevel(level)
+    resetTimer()
+})
 function doIntoOutoMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     mySprite.x = offSetX + screen.width / 2 + cx * Math.tan(rate * time)
     mySprite.y = offSetY + screen.height / 2
@@ -1267,6 +1292,19 @@ function goToNextLevel (level: number) {
     tiles.setCurrentTilemap(levels[level])
     placeSpritesOnTileMap()
 }
+scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile10, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    level += 1
+    updatePlayerTime(level, info.getTimeElapsed())
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.setGameOverDialogWinText("Way to Go!")
+        game.over(true, effects.confetti)
+    }
+    goToNextLevel(level)
+    resetTimer()
+})
 function doHorizontalSimpleHarmonicMotion (mySprite: Sprite, offsetX: number, offsetY: number) {
     mySprite.x = px2 - offsetX + screen.width / 2 + cx * Math.sin(rate * time)
 }
@@ -1281,10 +1319,10 @@ let leaderboardText = ""
 let levelIndex = 0
 let mySprite7: Sprite = null
 let mySprite4: Sprite = null
+let levels: tiles.TileMapData[] = []
 let jump = false
 let angle = 0
 let c = 0
-let levels: tiles.TileMapData[] = []
 let num = 0
 let timeArray: number[] = []
 let levelArray: string[] = []

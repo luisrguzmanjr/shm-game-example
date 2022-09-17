@@ -5,7 +5,8 @@
         "device": "*",
         "arcade-character-animations": "github:microsoft/arcade-character-animations#v0.0.2",
         "pxt-countup": "github:shakao/pxt-countup#v0.0.2",
-        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0"
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "custom-game-over": "github:shakao/custom-game-over#v0.0.4"
     },
     "files": [
         "main.blocks",

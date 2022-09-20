@@ -1,14 +1,5 @@
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
-    info.pauseCountup()
-    readTimesFromSettings()
-    updatePlayerTime(level, info.getTimeElapsed())
-    level += 1
-    showLeaderboards()
-    if (level >= levels.length) {
-        game.over(true, effects.confetti)
-    }
-    goToNextLevel(level)
-    resetTimer()
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    resetLevel()
 })
 function animateHero () {
     characterAnimations.loopFrames(
@@ -234,23 +225,6 @@ function animateHero () {
 function doVerticalSimpleHarmonicMotion (mySprite: Sprite, offsetx: number, offsety: number) {
     mySprite.y = py2 - offsety + screen.height / 2 + cy * Math.sin(rate * time)
 }
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (hero.vy == 0) {
-        hero.vy = -180
-        jump = false
-        music.playTone(932, music.beat(BeatFraction.Sixteenth))
-    } else {
-        if (jump == false) {
-            if (hero.vy > -60 && hero.vy < 60) {
-                hero.vy = -120
-                jump = true
-            }
-        }
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
-    resetLevel()
-})
 function placeSpritesOnTileMap () {
     list = tiles.getTilesByType(assets.tile`myTile3`)
     tiles.placeOnTile(mySprite, list._pickRandom())
@@ -290,6 +264,11 @@ function placeSpritesOnTileMap () {
         tiles.setTileAt(value5, assets.tile`transparency16`)
     }
 }
+controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (game.ask("Clear all high scores?")) {
+        blockSettings.clear()
+    }
+})
 function readTimesFromSettings () {
     levelArray = []
     nameArray = []
@@ -315,18 +294,19 @@ function doTopPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number
     mySprite.x = px1 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py1 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
-scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile10, function (sprite, location) {
-    info.pauseCountup()
-    readTimesFromSettings()
-    updatePlayerTime(level, info.getTimeElapsed())
-    level += 1
-    showLeaderboards()
-    if (level >= levels.length) {
-        game.setGameOverDialogWinText("Way to Go!")
-        game.over(true, effects.confetti)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (hero.vy == 0) {
+        hero.vy = -180
+        jump = false
+        music.playTone(932, music.beat(BeatFraction.Sixteenth))
+    } else {
+        if (jump == false) {
+            if (hero.vy > -60 && hero.vy < 60) {
+                hero.vy = -120
+                jump = true
+            }
+        }
     }
-    goToNextLevel(level)
-    resetTimer()
 })
 function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
     c = Math.cos(rate * time)
@@ -334,6 +314,18 @@ function doBottomPendulumMotion (mySprite: Sprite, offSetX: number, offSetY: num
     mySprite.x = px3 - offSetX + screen.width / 2 + cx * Math.cos(angle)
     mySprite.y = py3 - offSetY + screen.height / 2 + cy * Math.sin(angle)
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    updatePlayerTime(level, info.getTimeElapsed())
+    level += 1
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.over(true, effects.confetti)
+    }
+    goToNextLevel(level)
+    resetTimer()
+})
 function saveTimesToSettings () {
     for (let index = 0; index <= timeArray.length - 1; index++) {
         blockSettings.writeString("name" + levelArray[index], nameArray[index])
@@ -493,15 +485,7 @@ function makeSprites () {
 function resetLevel () {
     goToNextLevel(level)
 }
-function doIntoOutoMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
-    mySprite.x = offSetX + screen.width / 2 + cx * Math.tan(rate * time)
-    mySprite.y = offSetY + screen.height / 2
-}
-function doCircularMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
-    mySprite.x = px - offSetX + screen.width / 2 + cx * Math.cos(rate * time)
-    mySprite.y = py - offSetY + screen.height / 2 + cx * Math.sin(rate * time)
-}
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, location) {
     info.pauseCountup()
     readTimesFromSettings()
     updatePlayerTime(level, info.getTimeElapsed())
@@ -513,10 +497,29 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
     goToNextLevel(level)
     resetTimer()
 })
-controller.menu.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (game.ask("Clear all high scores?")) {
-        blockSettings.clear()
+scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile11, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    updatePlayerTime(level, info.getTimeElapsed())
+    level += 1
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.setGameOverDialogWinText("Way to Go!")
+        game.over(true, effects.confetti)
     }
+    goToNextLevel(level)
+    resetTimer()
+})
+function doIntoOutoMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+    mySprite.x = offSetX + screen.width / 2 + cx * Math.tan(rate * time)
+    mySprite.y = offSetY + screen.height / 2
+}
+function doCircularMotion (mySprite: Sprite, offSetX: number, offSetY: number) {
+    mySprite.x = px - offSetX + screen.width / 2 + cx * Math.cos(rate * time)
+    mySprite.y = py - offSetY + screen.height / 2 + cx * Math.sin(rate * time)
+}
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
+    resetLevel()
 })
 function updatePlayerTime (playerLevel: number, playerTime: number) {
     levelIndex = levelArray.indexOf("" + playerLevel)
@@ -551,19 +554,6 @@ function showLeaderboards () {
     }
     game.showLongText(leaderboardText, DialogLayout.Center)
 }
-scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile11, function (sprite, location) {
-    info.pauseCountup()
-    readTimesFromSettings()
-    updatePlayerTime(level, info.getTimeElapsed())
-    level += 1
-    showLeaderboards()
-    if (level >= levels.length) {
-        game.setGameOverDialogWinText("Way to Go!")
-        game.over(true, effects.confetti)
-    }
-    goToNextLevel(level)
-    resetTimer()
-})
 function goToNextLevel (level: number) {
     scene.setBackgroundImage(img`
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -1310,6 +1300,19 @@ function goToNextLevel (level: number) {
     tiles.setCurrentTilemap(levels[level])
     placeSpritesOnTileMap()
 }
+scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile10, function (sprite, location) {
+    info.pauseCountup()
+    readTimesFromSettings()
+    updatePlayerTime(level, info.getTimeElapsed())
+    level += 1
+    showLeaderboards()
+    if (level >= levels.length) {
+        game.setGameOverDialogWinText("Way to Go!")
+        game.over(true, effects.confetti)
+    }
+    goToNextLevel(level)
+    resetTimer()
+})
 function doHorizontalSimpleHarmonicMotion (mySprite: Sprite, offsetX: number, offsetY: number) {
     mySprite.x = px2 - offsetX + screen.width / 2 + cx * Math.sin(rate * time)
 }
@@ -1317,9 +1320,6 @@ function resetTimer () {
     info.clearCountup()
     info.startCountup(true)
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    resetLevel()
-})
 let backgrounds: Image[] = []
 let bestTime = 0
 let bestTimeIndex = 0
@@ -1327,6 +1327,8 @@ let leaderboardText = ""
 let levelIndex = 0
 let mySprite7: Sprite = null
 let mySprite4: Sprite = null
+let levels: tiles.TileMapData[] = []
+let jump = false
 let angle = 0
 let c = 0
 let timeArray: number[] = []
@@ -1345,11 +1347,9 @@ let py = 0
 let px = 0
 let mySprite: Sprite = null
 let list: tiles.Location[] = []
-let jump = false
 let time = 0
 let py2 = 0
 let hero: Sprite = null
-let levels: tiles.TileMapData[] = []
 let level = 0
 let cy = 0
 let cx = 0

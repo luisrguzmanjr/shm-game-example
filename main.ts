@@ -280,8 +280,8 @@ function readTimesFromSettings () {
     for (let index3 = 0; index3 <= timeArray.length - 1; index3++) {
         levelArray.push(blockSettings.readString("level" + index3))
     }
-    for (let index3 = 0; index3 <= timeArray.length - 1; index3++) {
-        nameArray.push(blockSettings.readString("name" + index3))
+    for (let index32 = 0; index32 <= timeArray.length - 1; index32++) {
+        nameArray.push(blockSettings.readString("name" + index32))
     }
 }
 function doIntoOutoMotion2 (mySprite: Sprite, offSetX: number, offSetY: number) {
@@ -525,6 +525,7 @@ function updatePlayerTime (playerLevel: number, playerTime: number) {
     levelIndex = levelArray.indexOf("" + playerLevel)
     if (levelIndex != -1) {
         if (timeArray[levelIndex] > playerTime) {
+            game.splash("New Best time!", "Way to go " + name + "!!")
             nameArray[levelIndex] = name
             levelArray[levelIndex] = "" + level
             timeArray[levelIndex] = playerTime
@@ -547,7 +548,7 @@ function showLeaderboards () {
                 bestTimeIndex = index2
             }
         }
-        leaderboardText = "" + leaderboardText + nameArray[bestTimeIndex] + " " + levelArray[bestTimeIndex] + "-" + timeArray[bestTimeIndex] + "\\n"
+        leaderboardText = "" + leaderboardText + nameArray[bestTimeIndex] + " " + (parseInt(levelArray[bestTimeIndex]) + 1) + "-" + timeArray[bestTimeIndex] + "\\n"
         nameArray.removeAt(bestTimeIndex)
         timeArray.removeAt(bestTimeIndex)
         levelArray.removeAt(bestTimeIndex)
